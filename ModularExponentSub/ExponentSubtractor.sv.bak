@@ -1,7 +1,0 @@
-module ExponentSubtractor (
-	input [5:0] A, B, 
-	output [5:0] R, 
-	output Cout
-);
-
-endmodule 

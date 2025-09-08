@@ -1,0 +1,9 @@
+module MantissaNormalizer(
+input [10:0] mantissa, 
+input [4:0] exponent,
+input operation,
+
+input [10:0] out_mantissa, 
+input [4:0] out_exponent,
+
+);

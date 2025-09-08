@@ -1,0 +1,710 @@
+Analysis & Synthesis report for LCDboard
+Tue Apr 22 21:15:28 2025
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |LCDboard|LCD:comb_3|LCD_Driver:comb_645|next_state
+  9. State Machine - |LCDboard|LCD:comb_3|LCD_Driver:comb_645|state
+ 10. State Machine - |LCDboard|LCD:comb_3|LCD_Initilizer:comb_4|next_state
+ 11. State Machine - |LCDboard|LCD:comb_3|LCD_Initilizer:comb_4|state
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: LCD:comb_3
+ 17. Parameter Settings for User Entity Instance: LCD:comb_3|bin2bcd:a_bin2bcd
+ 18. Parameter Settings for User Entity Instance: LCD:comb_3|bcd2disp:a_bcd2disp
+ 19. Parameter Settings for User Entity Instance: LCD:comb_3|bin2bcd:b_bin2bcd
+ 20. Parameter Settings for User Entity Instance: LCD:comb_3|bcd2disp:b_bcd2disp
+ 21. Parameter Settings for User Entity Instance: LCD:comb_3|bin2bcd:c_bin2bcd
+ 22. Parameter Settings for User Entity Instance: LCD:comb_3|bcd2disp:c_bcd2disp
+ 23. Parameter Settings for User Entity Instance: LCD:comb_3|calculator_operation_display:comb_3
+ 24. Parameter Settings for User Entity Instance: LCD:comb_3|LCD_Driver:comb_645
+ 25. Port Connectivity Checks: "LCD:comb_3"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+ 29. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Apr 22 21:15:28 2025       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; LCDboard                                    ;
+; Top-level Entity Name              ; LCDboard                                    ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 505                                         ;
+;     Total combinational functions  ; 495                                         ;
+;     Dedicated logic registers      ; 142                                         ;
+; Total registers                    ; 142                                         ;
+; Total pins                         ; 62                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; LCDboard           ; LCDboard           ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
+; SharedMacros.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/SharedMacros.sv ;         ;
+; LCDboard.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv     ;         ;
+; LCD.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv          ;         ;
+; Initilizer.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Initilizer.sv   ;         ;
+; Driver.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv       ;         ;
+; Characters.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Characters.sv   ;         ;
+; bin2bcd.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/bin2bcd.sv      ;         ;
+; bcd2disp.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/bcd2disp.sv     ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 505       ;
+;                                             ;           ;
+; Total combinational functions               ; 495       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 268       ;
+;     -- 3 input functions                    ; 107       ;
+;     -- <=2 input functions                  ; 120       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 425       ;
+;     -- arithmetic mode                      ; 70        ;
+;                                             ;           ;
+; Total registers                             ; 142       ;
+;     -- Dedicated logic registers            ; 142       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 62        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 142       ;
+; Total fan-out                               ; 2148      ;
+; Average fan-out                             ; 2.79      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                             ;
++-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                        ; Entity Name    ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------+----------------+--------------+
+; |LCDboard                     ; 495 (0)             ; 142 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 62   ; 0            ; 0          ; |LCDboard                                  ; LCDboard       ; work         ;
+;    |LCD:comb_3|               ; 495 (10)            ; 142 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LCDboard|LCD:comb_3                       ; LCD            ; work         ;
+;       |LCD_Driver:comb_645|   ; 277 (277)           ; 71 (71)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LCDboard|LCD:comb_3|LCD_Driver:comb_645   ; LCD_Driver     ; work         ;
+;       |LCD_Initilizer:comb_4| ; 205 (205)           ; 71 (71)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LCDboard|LCD:comb_3|LCD_Initilizer:comb_4 ; LCD_Initilizer ; work         ;
+;       |bcd2disp:a_bcd2disp|   ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LCDboard|LCD:comb_3|bcd2disp:a_bcd2disp   ; bcd2disp       ; work         ;
+;       |bcd2disp:b_bcd2disp|   ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LCDboard|LCD:comb_3|bcd2disp:b_bcd2disp   ; bcd2disp       ; work         ;
+;       |bcd2disp:c_bcd2disp|   ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LCDboard|LCD:comb_3|bcd2disp:c_bcd2disp   ; bcd2disp       ; work         ;
++-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------+----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |LCDboard|LCD:comb_3|LCD_Driver:comb_645|next_state                                                                                                             ;
++----------------------+----------------------+----------------------+--------------------+----------------------+-------------------+----------------------+---------------------+
+; Name                 ; next_state.Increment ; next_state.WaitBusy3 ; next_state.SetChar ; next_state.WaitBusy2 ; next_state.SetPOS ; next_state.WaitBusy1 ; next_state.WaitInit ;
++----------------------+----------------------+----------------------+--------------------+----------------------+-------------------+----------------------+---------------------+
+; next_state.WaitInit  ; 0                    ; 0                    ; 0                  ; 0                    ; 0                 ; 0                    ; 0                   ;
+; next_state.WaitBusy1 ; 0                    ; 0                    ; 0                  ; 0                    ; 0                 ; 1                    ; 1                   ;
+; next_state.SetPOS    ; 0                    ; 0                    ; 0                  ; 0                    ; 1                 ; 0                    ; 1                   ;
+; next_state.WaitBusy2 ; 0                    ; 0                    ; 0                  ; 1                    ; 0                 ; 0                    ; 1                   ;
+; next_state.SetChar   ; 0                    ; 0                    ; 1                  ; 0                    ; 0                 ; 0                    ; 1                   ;
+; next_state.WaitBusy3 ; 0                    ; 1                    ; 0                  ; 0                    ; 0                 ; 0                    ; 1                   ;
+; next_state.Increment ; 1                    ; 0                    ; 0                  ; 0                    ; 0                 ; 0                    ; 1                   ;
++----------------------+----------------------+----------------------+--------------------+----------------------+-------------------+----------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |LCDboard|LCD:comb_3|LCD_Driver:comb_645|state                                                                          ;
++-----------------+-----------------+-----------------+---------------+-----------------+--------------+-----------------+----------------+
+; Name            ; state.Increment ; state.WaitBusy3 ; state.SetChar ; state.WaitBusy2 ; state.SetPOS ; state.WaitBusy1 ; state.WaitInit ;
++-----------------+-----------------+-----------------+---------------+-----------------+--------------+-----------------+----------------+
+; state.WaitInit  ; 0               ; 0               ; 0             ; 0               ; 0            ; 0               ; 0              ;
+; state.WaitBusy1 ; 0               ; 0               ; 0             ; 0               ; 0            ; 1               ; 1              ;
+; state.SetPOS    ; 0               ; 0               ; 0             ; 0               ; 1            ; 0               ; 1              ;
+; state.WaitBusy2 ; 0               ; 0               ; 0             ; 1               ; 0            ; 0               ; 1              ;
+; state.SetChar   ; 0               ; 0               ; 1             ; 0               ; 0            ; 0               ; 1              ;
+; state.WaitBusy3 ; 0               ; 1               ; 0             ; 0               ; 0            ; 0               ; 1              ;
+; state.Increment ; 1               ; 0               ; 0             ; 0               ; 0            ; 0               ; 1              ;
++-----------------+-----------------+-----------------+---------------+-----------------+--------------+-----------------+----------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |LCDboard|LCD:comb_3|LCD_Initilizer:comb_4|next_state                                                                                                                                                                                                                                                                                                                             ;
++-------------------------+-----------------+----------------------+----------------------+----------------------+----------------------+----------------------+-------------------+----------------------+------------------+----------------------+-------------------------+----------------------+-------------------------+--------------------+-------------------------+---------------------+
+; Name                    ; next_state.Done ; next_state.WaitBusy5 ; next_state.DispClear ; next_state.WaitBusy4 ; next_state.EntryMode ; next_state.WaitBusy3 ; next_state.DispOn ; next_state.WaitBusy2 ; next_state.SetNF ; next_state.WaitBusy1 ; next_state.FunctionSet3 ; next_state.Wait250us ; next_state.FunctionSet2 ; next_state.Wait5ms ; next_state.FunctionSet1 ; next_state.Wait20ms ;
++-------------------------+-----------------+----------------------+----------------------+----------------------+----------------------+----------------------+-------------------+----------------------+------------------+----------------------+-------------------------+----------------------+-------------------------+--------------------+-------------------------+---------------------+
+; next_state.Wait20ms     ; 0               ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                    ; 0                ; 0                    ; 0                       ; 0                    ; 0                       ; 0                  ; 0                       ; 0                   ;
+; next_state.FunctionSet1 ; 0               ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                    ; 0                ; 0                    ; 0                       ; 0                    ; 0                       ; 0                  ; 1                       ; 1                   ;
+; next_state.Wait5ms      ; 0               ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                    ; 0                ; 0                    ; 0                       ; 0                    ; 0                       ; 1                  ; 0                       ; 1                   ;
+; next_state.FunctionSet2 ; 0               ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                    ; 0                ; 0                    ; 0                       ; 0                    ; 1                       ; 0                  ; 0                       ; 1                   ;
+; next_state.Wait250us    ; 0               ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                    ; 0                ; 0                    ; 0                       ; 1                    ; 0                       ; 0                  ; 0                       ; 1                   ;
+; next_state.FunctionSet3 ; 0               ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                    ; 0                ; 0                    ; 1                       ; 0                    ; 0                       ; 0                  ; 0                       ; 1                   ;
+; next_state.WaitBusy1    ; 0               ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                    ; 0                ; 1                    ; 0                       ; 0                    ; 0                       ; 0                  ; 0                       ; 1                   ;
+; next_state.SetNF        ; 0               ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                    ; 1                ; 0                    ; 0                       ; 0                    ; 0                       ; 0                  ; 0                       ; 1                   ;
+; next_state.WaitBusy2    ; 0               ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 1                    ; 0                ; 0                    ; 0                       ; 0                    ; 0                       ; 0                  ; 0                       ; 1                   ;
+; next_state.DispOn       ; 0               ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                 ; 0                    ; 0                ; 0                    ; 0                       ; 0                    ; 0                       ; 0                  ; 0                       ; 1                   ;
+; next_state.WaitBusy3    ; 0               ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                 ; 0                    ; 0                ; 0                    ; 0                       ; 0                    ; 0                       ; 0                  ; 0                       ; 1                   ;
+; next_state.EntryMode    ; 0               ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                 ; 0                    ; 0                ; 0                    ; 0                       ; 0                    ; 0                       ; 0                  ; 0                       ; 1                   ;
+; next_state.WaitBusy4    ; 0               ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                 ; 0                    ; 0                ; 0                    ; 0                       ; 0                    ; 0                       ; 0                  ; 0                       ; 1                   ;
+; next_state.DispClear    ; 0               ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                    ; 0                ; 0                    ; 0                       ; 0                    ; 0                       ; 0                  ; 0                       ; 1                   ;
+; next_state.WaitBusy5    ; 0               ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                    ; 0                ; 0                    ; 0                       ; 0                    ; 0                       ; 0                  ; 0                       ; 1                   ;
+; next_state.Done         ; 1               ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                    ; 0                ; 0                    ; 0                       ; 0                    ; 0                       ; 0                  ; 0                       ; 1                   ;
++-------------------------+-----------------+----------------------+----------------------+----------------------+----------------------+----------------------+-------------------+----------------------+------------------+----------------------+-------------------------+----------------------+-------------------------+--------------------+-------------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |LCDboard|LCD:comb_3|LCD_Initilizer:comb_4|state                                                                                                                                                                                                                                             ;
++--------------------+------------+-----------------+-----------------+-----------------+-----------------+-----------------+--------------+-----------------+-------------+-----------------+--------------------+-----------------+--------------------+---------------+--------------------+----------------+
+; Name               ; state.Done ; state.WaitBusy5 ; state.DispClear ; state.WaitBusy4 ; state.EntryMode ; state.WaitBusy3 ; state.DispOn ; state.WaitBusy2 ; state.SetNF ; state.WaitBusy1 ; state.FunctionSet3 ; state.Wait250us ; state.FunctionSet2 ; state.Wait5ms ; state.FunctionSet1 ; state.Wait20ms ;
++--------------------+------------+-----------------+-----------------+-----------------+-----------------+-----------------+--------------+-----------------+-------------+-----------------+--------------------+-----------------+--------------------+---------------+--------------------+----------------+
+; state.Wait20ms     ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0            ; 0               ; 0           ; 0               ; 0                  ; 0               ; 0                  ; 0             ; 0                  ; 0              ;
+; state.FunctionSet1 ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0            ; 0               ; 0           ; 0               ; 0                  ; 0               ; 0                  ; 0             ; 1                  ; 1              ;
+; state.Wait5ms      ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0            ; 0               ; 0           ; 0               ; 0                  ; 0               ; 0                  ; 1             ; 0                  ; 1              ;
+; state.FunctionSet2 ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0            ; 0               ; 0           ; 0               ; 0                  ; 0               ; 1                  ; 0             ; 0                  ; 1              ;
+; state.Wait250us    ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0            ; 0               ; 0           ; 0               ; 0                  ; 1               ; 0                  ; 0             ; 0                  ; 1              ;
+; state.FunctionSet3 ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0            ; 0               ; 0           ; 0               ; 1                  ; 0               ; 0                  ; 0             ; 0                  ; 1              ;
+; state.WaitBusy1    ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0            ; 0               ; 0           ; 1               ; 0                  ; 0               ; 0                  ; 0             ; 0                  ; 1              ;
+; state.SetNF        ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0            ; 0               ; 1           ; 0               ; 0                  ; 0               ; 0                  ; 0             ; 0                  ; 1              ;
+; state.WaitBusy2    ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0            ; 1               ; 0           ; 0               ; 0                  ; 0               ; 0                  ; 0             ; 0                  ; 1              ;
+; state.DispOn       ; 0          ; 0               ; 0               ; 0               ; 0               ; 0               ; 1            ; 0               ; 0           ; 0               ; 0                  ; 0               ; 0                  ; 0             ; 0                  ; 1              ;
+; state.WaitBusy3    ; 0          ; 0               ; 0               ; 0               ; 0               ; 1               ; 0            ; 0               ; 0           ; 0               ; 0                  ; 0               ; 0                  ; 0             ; 0                  ; 1              ;
+; state.EntryMode    ; 0          ; 0               ; 0               ; 0               ; 1               ; 0               ; 0            ; 0               ; 0           ; 0               ; 0                  ; 0               ; 0                  ; 0             ; 0                  ; 1              ;
+; state.WaitBusy4    ; 0          ; 0               ; 0               ; 1               ; 0               ; 0               ; 0            ; 0               ; 0           ; 0               ; 0                  ; 0               ; 0                  ; 0             ; 0                  ; 1              ;
+; state.DispClear    ; 0          ; 0               ; 1               ; 0               ; 0               ; 0               ; 0            ; 0               ; 0           ; 0               ; 0                  ; 0               ; 0                  ; 0             ; 0                  ; 1              ;
+; state.WaitBusy5    ; 0          ; 1               ; 0               ; 0               ; 0               ; 0               ; 0            ; 0               ; 0           ; 0               ; 0                  ; 0               ; 0                  ; 0             ; 0                  ; 1              ;
+; state.Done         ; 1          ; 0               ; 0               ; 0               ; 0               ; 0               ; 0            ; 0               ; 0           ; 0               ; 0                  ; 0               ; 0                  ; 0             ; 0                  ; 1              ;
++--------------------+------------+-----------------+-----------------+-----------------+-----------------+-----------------+--------------+-----------------+-------------+-----------------+--------------------+-----------------+--------------------+---------------+--------------------+----------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                        ;
++-----------------------------------------------+-----------------------------------------------------------+
+; Register name                                 ; Reason for Removal                                        ;
++-----------------------------------------------+-----------------------------------------------------------+
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[7]~reg0 ; Stuck at GND due to stuck port data_in                    ;
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[6]~reg0 ; Stuck at GND due to stuck port data_in                    ;
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[0]~en   ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[1]~en   ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[2]~en   ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[3]~en   ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[4]~en   ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[5]~en   ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[6]~en   ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[7]~en   ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Driver:comb_645|RW             ; Stuck at GND due to stuck port data_in                    ;
+; LCD:comb_3|LCD_Initilizer:comb_4|RS           ; Stuck at GND due to stuck port data_in                    ;
+; LCD:comb_3|LCD_Initilizer:comb_4|RW           ; Stuck at GND due to stuck port data_in                    ;
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[5]~reg0 ; Merged with LCD:comb_3|LCD_Initilizer:comb_4|DATA[4]~reg0 ;
+; LCD:comb_3|LCD_Driver:comb_645|line[2]        ; Stuck at GND due to stuck port data_in                    ;
+; LCD:comb_3|LCD_Driver:comb_645|col[5]         ; Stuck at GND due to stuck port data_in                    ;
+; LCD:comb_3|LCD_Driver:comb_645|next_state~4   ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Driver:comb_645|next_state~5   ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Driver:comb_645|next_state~6   ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Driver:comb_645|next_state~7   ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Driver:comb_645|state~4        ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Driver:comb_645|state~5        ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Driver:comb_645|state~6        ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Driver:comb_645|state~7        ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|next_state~4 ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|next_state~5 ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|next_state~6 ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|next_state~7 ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|state~4      ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|state~5      ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|state~6      ; Lost fanout                                               ;
+; LCD:comb_3|LCD_Initilizer:comb_4|state~7      ; Lost fanout                                               ;
+; Total Number of Removed Registers = 32        ;                                                           ;
++-----------------------------------------------+-----------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                             ;
++-----------------------------------------------+---------------------------+---------------------------------------------+
+; Register name                                 ; Reason for Removal        ; Registers Removed due to This Register      ;
++-----------------------------------------------+---------------------------+---------------------------------------------+
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[7]~reg0 ; Stuck at GND              ; LCD:comb_3|LCD_Initilizer:comb_4|DATA[7]~en ;
+;                                               ; due to stuck port data_in ;                                             ;
+; LCD:comb_3|LCD_Initilizer:comb_4|DATA[6]~reg0 ; Stuck at GND              ; LCD:comb_3|LCD_Initilizer:comb_4|DATA[6]~en ;
+;                                               ; due to stuck port data_in ;                                             ;
++-----------------------------------------------+---------------------------+---------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 142   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 5     ;
+; Number of registers using Asynchronous Clear ; 118   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 29    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |LCDboard|LCD:comb_3|LCD_Driver:comb_645|DATA[3]~reg0 ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |LCDboard|LCD:comb_3|LCD_Driver:comb_645|Mux15        ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |LCDboard|LCD:comb_3|LCD_Driver:comb_645|Selector2    ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |LCDboard|LCD:comb_3|LCD_Driver:comb_645|Selector6    ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |LCDboard|LCD:comb_3|LCD_Initilizer:comb_4|Selector1  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD:comb_3         ;
++----------------+------------------------------+-----------------+
+; Parameter Name ; Value                        ; Type            ;
++----------------+------------------------------+-----------------+
+; WIDTH          ; 64                           ; Signed Integer  ;
+; DIGITS         ; 16                           ; Signed Integer  ;
+; FLOAT          ; 0                            ; Signed Integer  ;
+; MODE           ; 1                            ; Signed Integer  ;
+; LINES          ; 4                            ; Signed Integer  ;
+; CHARS          ; 20                           ; Signed Integer  ;
+; LINE_STARTS    ; 0000000100000000101001010100 ; Unsigned Binary ;
++----------------+------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD:comb_3|bin2bcd:a_bin2bcd ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; WIDTH          ; 64    ; Signed Integer                                   ;
+; DIGITS         ; 16    ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD:comb_3|bcd2disp:a_bcd2disp ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; WIDTH          ; 64    ; Signed Integer                                     ;
+; CHARS          ; 20    ; Signed Integer                                     ;
+; DIGITS         ; 16    ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD:comb_3|bin2bcd:b_bin2bcd ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; WIDTH          ; 64    ; Signed Integer                                   ;
+; DIGITS         ; 16    ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD:comb_3|bcd2disp:b_bcd2disp ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; WIDTH          ; 64    ; Signed Integer                                     ;
+; CHARS          ; 20    ; Signed Integer                                     ;
+; DIGITS         ; 16    ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD:comb_3|bin2bcd:c_bin2bcd ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; WIDTH          ; 64    ; Signed Integer                                   ;
+; DIGITS         ; 16    ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD:comb_3|bcd2disp:c_bcd2disp ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; WIDTH          ; 64    ; Signed Integer                                     ;
+; CHARS          ; 20    ; Signed Integer                                     ;
+; DIGITS         ; 16    ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD:comb_3|calculator_operation_display:comb_3 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; MODE           ; 1     ; Signed Integer                                                     ;
+; CHARS          ; 20    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD:comb_3|LCD_Driver:comb_645      ;
++----------------+------------------------------------------------+----------------+
+; Parameter Name ; Value                                          ; Type           ;
++----------------+------------------------------------------------+----------------+
+; LINES          ; 4                                              ; Signed Integer ;
+; CHARS          ; 20                                             ; Signed Integer ;
+; LINE_STARTS    ; A(B"0000000",B"1000000",B"0010100",B"1010100") ; Array/Record   ;
++----------------+------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "LCD:comb_3"                                                                                                                                           ;
++-----------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                           ;
++-----------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; A         ; Input ; Warning  ; Input port expression (16 bits) is smaller than the input port (64 bits) it drives.  Extra input bit(s) "A[63..16]" will be connected to GND.     ;
+; B         ; Input ; Warning  ; Input port expression (16 bits) is smaller than the input port (64 bits) it drives.  Extra input bit(s) "B[63..16]" will be connected to GND.     ;
+; C         ; Input ; Warning  ; Input port expression (16 bits) is smaller than the input port (64 bits) it drives.  Extra input bit(s) "C[63..16]" will be connected to GND.     ;
+; Operation ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "Operation[1..1]" will be connected to GND. ;
++-----------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 62                          ;
+; cycloneiii_ff         ; 142                         ;
+;     CLR               ; 113                         ;
+;     ENA               ; 19                          ;
+;     ENA CLR           ; 5                           ;
+;     ENA SLD           ; 5                           ;
+; cycloneiii_io_obuf    ; 8                           ;
+; cycloneiii_lcell_comb ; 497                         ;
+;     arith             ; 70                          ;
+;         2 data inputs ; 68                          ;
+;         3 data inputs ; 2                           ;
+;     normal            ; 427                         ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 47                          ;
+;         3 data inputs ; 105                         ;
+;         4 data inputs ; 268                         ;
+;                       ;                             ;
+; Max LUT depth         ; 12.20                       ;
+; Average LUT depth     ; 8.07                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Tue Apr 22 21:15:21 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LCDboard -c LCDboard
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file keypad/shift_reg.sv
+    Info (12023): Found entity 1: shift_reg File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/KeyPad/shift_reg.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file keypad/keypad_fsm.sv
+    Info (12023): Found entity 1: keypad_fsm File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/KeyPad/keypad_fsm.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file keypad/keypad_decoder.sv
+    Info (12023): Found entity 1: keypad_decoder File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/KeyPad/keypad_decoder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file keypad/keypad_base.sv
+    Info (12023): Found entity 1: keypad_base File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/KeyPad/keypad_base.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file keypad/keypad.sv
+    Info (12023): Found entity 1: Keypad File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/KeyPad/Keypad.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file keypad/clock_div.sv
+    Info (12023): Found entity 1: clock_div File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/KeyPad/clock_div.sv Line: 1
+Info (12021): Found 0 design units, including 0 entities, in source file sharedmacros.sv
+Info (12021): Found 1 design units, including 1 entities, in source file lcdboard.sv
+    Info (12023): Found entity 1: LCDboard File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file lcd.sv
+    Info (12023): Found entity 1: LCD File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 1
+    Info (12023): Found entity 2: calculator_operation_display File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 139
+Info (12021): Found 1 design units, including 1 entities, in source file initilizer.sv
+    Info (12023): Found entity 1: LCD_Initilizer File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Initilizer.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file driver.sv
+    Info (12023): Found entity 1: LCD_Driver File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv Line: 1
+Info (12021): Found 0 design units, including 0 entities, in source file characters.sv
+Info (12021): Found 1 design units, including 1 entities, in source file bin2bcd.sv
+    Info (12023): Found entity 1: bin2bcd File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/bin2bcd.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bcd2disp.sv
+    Info (12023): Found entity 1: bcd2disp File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/bcd2disp.sv Line: 1
+Critical Warning (10846): Verilog HDL Instantiation warning at LCD.sv(94): instance has no name File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 94
+Critical Warning (10846): Verilog HDL Instantiation warning at LCD.sv(107): instance has no name File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 107
+Critical Warning (10846): Verilog HDL Instantiation warning at LCD.sv(130): instance has no name File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 130
+Critical Warning (10846): Verilog HDL Instantiation warning at LCDboard.sv(35): instance has no name File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 35
+Info (12127): Elaborating entity "LCDboard" for the top level hierarchy
+Info (12128): Elaborating entity "LCD" for hierarchy "LCD:comb_3" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 35
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "display_chars" into its bus
+Info (12128): Elaborating entity "bin2bcd" for hierarchy "LCD:comb_3|bin2bcd:a_bin2bcd" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 38
+Info (12128): Elaborating entity "bcd2disp" for hierarchy "LCD:comb_3|bcd2disp:a_bcd2disp" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 48
+Info (12128): Elaborating entity "calculator_operation_display" for hierarchy "LCD:comb_3|calculator_operation_display:comb_3" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 94
+Warning (10199): Verilog HDL Case Statement warning at LCD.sv(192): case item expression never matches the case expression File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 192
+Warning (10199): Verilog HDL Case Statement warning at LCD.sv(160): case item expression never matches the case expression File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 160
+Warning (10199): Verilog HDL Case Statement warning at LCD.sv(161): case item expression never matches the case expression File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 161
+Warning (10199): Verilog HDL Case Statement warning at LCD.sv(169): case item expression never matches the case expression File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 169
+Warning (10199): Verilog HDL Case Statement warning at LCD.sv(170): case item expression never matches the case expression File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 170
+Warning (10199): Verilog HDL Case Statement warning at LCD.sv(171): case item expression never matches the case expression File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 171
+Warning (10240): Verilog HDL Always Construct warning at LCD.sv(150): inferring latch(es) for variable "holder", which holds its previous value in one or more paths through the always construct File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 150
+Info (10041): Inferred latch for "holder[0]" at LCD.sv(165) File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Info (10041): Inferred latch for "holder[1]" at LCD.sv(165) File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Info (10041): Inferred latch for "holder[2]" at LCD.sv(165) File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Info (10041): Inferred latch for "holder[3]" at LCD.sv(165) File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Info (10041): Inferred latch for "holder[4]" at LCD.sv(165) File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Info (10041): Inferred latch for "holder[5]" at LCD.sv(165) File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Info (10041): Inferred latch for "holder[6]" at LCD.sv(165) File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Info (10041): Inferred latch for "holder[7]" at LCD.sv(165) File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Info (12128): Elaborating entity "LCD_Initilizer" for hierarchy "LCD:comb_3|LCD_Initilizer:comb_4" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 107
+Info (12128): Elaborating entity "LCD_Driver" for hierarchy "LCD:comb_3|LCD_Driver:comb_645" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 130
+Warning (10230): Verilog HDL assignment warning at Driver.sv(48): truncated value with size 32 to match size of target (6) File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv Line: 48
+Warning (10230): Verilog HDL assignment warning at Driver.sv(48): truncated value with size 32 to match size of target (3) File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv Line: 48
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "display_chars" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "display_chars" into its bus
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "LCD:comb_3|LCD_Initilizer:comb_4|DATA[0]~synth" feeding internal logic into a wire File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Initilizer.sv Line: 37
+    Warning (13049): Converted tri-state buffer "LCD:comb_3|LCD_Initilizer:comb_4|DATA[1]~synth" feeding internal logic into a wire File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Initilizer.sv Line: 37
+    Warning (13049): Converted tri-state buffer "LCD:comb_3|LCD_Initilizer:comb_4|DATA[2]~synth" feeding internal logic into a wire File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Initilizer.sv Line: 37
+    Warning (13049): Converted tri-state buffer "LCD:comb_3|LCD_Initilizer:comb_4|DATA[3]~synth" feeding internal logic into a wire File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Initilizer.sv Line: 37
+    Warning (13049): Converted tri-state buffer "LCD:comb_3|LCD_Initilizer:comb_4|DATA[4]~synth" feeding internal logic into a wire File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Initilizer.sv Line: 37
+    Warning (13049): Converted tri-state buffer "LCD:comb_3|LCD_Initilizer:comb_4|DATA[5]~synth" feeding internal logic into a wire File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Initilizer.sv Line: 37
+    Warning (13049): Converted tri-state buffer "LCD:comb_3|LCD_Initilizer:comb_4|DATA[6]~synth" feeding internal logic into a wire File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Initilizer.sv Line: 37
+    Warning (13049): Converted tri-state buffer "LCD:comb_3|LCD_Initilizer:comb_4|DATA[7]~synth" feeding internal logic into a wire File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Initilizer.sv Line: 37
+Warning (14026): LATCH primitive "LCD:comb_3|calculator_operation_display:comb_3|holder[3]" is permanently enabled File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Warning (14026): LATCH primitive "LCD:comb_3|calculator_operation_display:comb_3|holder[2]" is permanently enabled File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Warning (14026): LATCH primitive "LCD:comb_3|calculator_operation_display:comb_3|holder[1]" is permanently enabled File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Warning (14026): LATCH primitive "LCD:comb_3|calculator_operation_display:comb_3|holder[0]" is permanently enabled File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Warning (14026): LATCH primitive "LCD:comb_3|calculator_operation_display:comb_3|holder[5]" is permanently enabled File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Warning (14026): LATCH primitive "LCD:comb_3|calculator_operation_display:comb_3|holder[4]" is permanently enabled File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Warning (14026): LATCH primitive "LCD:comb_3|calculator_operation_display:comb_3|holder[3]" is permanently enabled File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Warning (14026): LATCH primitive "LCD:comb_3|calculator_operation_display:comb_3|holder[2]" is permanently enabled File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Warning (14026): LATCH primitive "LCD:comb_3|calculator_operation_display:comb_3|holder[5]" is permanently enabled File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCD.sv Line: 165
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[0]" and its non-tri-state driver. File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[1]" and its non-tri-state driver. File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[2]" and its non-tri-state driver. File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[3]" and its non-tri-state driver. File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[4]" and its non-tri-state driver. File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[5]" and its non-tri-state driver. File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[6]" and its non-tri-state driver. File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13035): Inserted always-enabled tri-state buffer between "lcd_data[7]" and its non-tri-state driver. File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "LCD:comb_3|LCD_Driver:comb_645|DATA[0]" to the node "LCD:comb_3|lcd_data" into an OR gate File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv Line: 35
+    Warning (13047): Converted the fan-out from the tri-state buffer "LCD:comb_3|LCD_Driver:comb_645|DATA[1]" to the node "LCD:comb_3|lcd_data" into an OR gate File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv Line: 35
+    Warning (13047): Converted the fan-out from the tri-state buffer "LCD:comb_3|LCD_Driver:comb_645|DATA[2]" to the node "LCD:comb_3|lcd_data" into an OR gate File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv Line: 35
+    Warning (13047): Converted the fan-out from the tri-state buffer "LCD:comb_3|LCD_Driver:comb_645|DATA[3]" to the node "LCD:comb_3|lcd_data" into an OR gate File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv Line: 35
+    Warning (13047): Converted the fan-out from the tri-state buffer "LCD:comb_3|LCD_Driver:comb_645|DATA[4]" to the node "LCD:comb_3|lcd_data" into an OR gate File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv Line: 35
+    Warning (13047): Converted the fan-out from the tri-state buffer "LCD:comb_3|LCD_Driver:comb_645|DATA[5]" to the node "LCD:comb_3|lcd_data" into an OR gate File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv Line: 35
+    Warning (13047): Converted the fan-out from the tri-state buffer "LCD:comb_3|LCD_Driver:comb_645|DATA[6]" to the node "LCD:comb_3|lcd_data" into an OR gate File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv Line: 35
+    Warning (13047): Converted the fan-out from the tri-state buffer "LCD:comb_3|LCD_Driver:comb_645|DATA[7]" to the node "LCD:comb_3|lcd_data" into an OR gate File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv Line: 35
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "lcd_data[0]~synth" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13010): Node "lcd_data[1]~synth" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13010): Node "lcd_data[2]~synth" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13010): Node "lcd_data[3]~synth" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13010): Node "lcd_data[4]~synth" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13010): Node "lcd_data[5]~synth" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13010): Node "lcd_data[6]~synth" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+    Warning (13010): Node "lcd_data[7]~synth" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 3
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "lcd_rw" is stuck at GND File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/LCDboard.sv Line: 5
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 24 registers lost all their fanouts during netlist optimizations.
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "LCD:comb_3|LCD_Driver:comb_645|DATA[6]~14" File: C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/Driver.sv Line: 35
+Info (144001): Generated suppressed messages file C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/output_files/LCDboard.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 628 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 51 input pins
+    Info (21059): Implemented 3 output pins
+    Info (21060): Implemented 8 bidirectional pins
+    Info (21061): Implemented 566 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 62 warnings
+    Info: Peak virtual memory: 4844 megabytes
+    Info: Processing ended: Tue Apr 22 21:15:28 2025
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:07
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/ppath/Documents/DigitalLogic2/TermProject/LCDBoard/output_files/LCDboard.map.smsg.
+
+

@@ -1,0 +1,190 @@
+|EightBitRightBarrelShifter
+in[0] => in[0].IN1
+in[1] => in[1].IN1
+in[2] => in[2].IN1
+in[3] => in[3].IN1
+in[4] => in[4].IN2
+in[5] => in[5].IN2
+in[6] => in[6].IN2
+in[7] => in[7].IN2
+ctrl[0] => ctrl[0].IN8
+ctrl[1] => ctrl[1].IN8
+ctrl[2] => ctrl[2].IN8
+out[0] << mux2to1:inst_00.out
+out[1] << mux2to1:inst_01.out
+out[2] << mux2to1:inst_02.out
+out[3] << mux2to1:inst_03.out
+out[4] << mux2to1:inst_04.out
+out[5] << mux2to1:inst_05.out
+out[6] << mux2to1:inst_06.out
+out[7] << mux2to1:inst_07.out
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_27
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_26
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_25
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_24
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_23
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_22
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_21
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_20
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_17
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_16
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_15
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_14
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_13
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_12
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_11
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_10
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_07
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_06
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_05
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_04
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_03
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_02
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_01
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightBitRightBarrelShifter|mux2to1:inst_00
+in0 => out.DATAA
+in1 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+

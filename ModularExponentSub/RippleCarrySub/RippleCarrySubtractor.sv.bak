@@ -1,0 +1,7 @@
+module RippleCarrySubtractor #(parameter N = 5)(
+	input [N-1:0] A, B,
+	output [N-1: 0] Result, 
+	output Cout
+);
+
+endmodule 

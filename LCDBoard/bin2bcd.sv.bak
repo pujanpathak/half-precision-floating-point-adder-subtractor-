@@ -1,0 +1,5 @@
+module bin2bcd
+	#(parameter				           WIDTH = 32                                   ) // Bit Width
+	 (input     [WIDTH-1:0]         bin                                          , // Binary Input
+	  output                        sign                                         , // Sign Bit
+	  output    [3:0]               bcd        [($floor(WIDTH*$log10(2))+1)-1:0] , // BCD Output

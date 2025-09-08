@@ -1,0 +1,17 @@
+module FiveBitControlledInc_Dec(
+
+	input [4:0] A, 
+	input select, Cin,
+	output [4:0] S
+);
+
+	logic [4:0] C;
+	
+	//8 Full Adder 
+	FAbehav s0 (A[0], Cin ^ select, Cin, S[0], C[0]);
+	FAbehav s1 (A[1], Cin ^ 1'b0, C[0], S[1], C[1]);
+	FAbehav s2 (A[2], Cin ^ 1'b0, C[1], S[2], C[2]);
+	FAbehav s3 (A[3], Cin ^ 1'b0, C[2], S[3], C[3]);
+	FAbehav s4 (A[4], Cin ^ 1'b0, C[3], S[4], C[4]);
+	
+endmodule 

@@ -1,0 +1,136 @@
+|ExponentSubtractor
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+R[0] << R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] << R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] << R.DB_MAX_OUTPUT_PORT_TYPE
+R[3] << R.DB_MAX_OUTPUT_PORT_TYPE
+R[4] << R.DB_MAX_OUTPUT_PORT_TYPE
+Cout << RippleCarrySubtractor:RippleSub.Cout
+
+
+|ExponentSubtractor|RippleCarrySubtractor:RippleSub
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+B[0] => comb.IN0
+B[1] => comb.IN0
+B[2] => comb.IN0
+B[3] => comb.IN0
+B[4] => comb.IN0
+S[0] <= FAbehav:s0.port3
+S[1] <= FAbehav:s1.port3
+S[2] <= FAbehav:s2.port3
+S[3] <= FAbehav:s3.port3
+S[4] <= FAbehav:s4.port3
+Cout <= FAbehav:s4.port4
+
+
+|ExponentSubtractor|RippleCarrySubtractor:RippleSub|FAbehav:s0
+ai => Decoder0.IN0
+bi => Decoder0.IN1
+cini => Decoder0.IN2
+si <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+couti <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ExponentSubtractor|RippleCarrySubtractor:RippleSub|FAbehav:s1
+ai => Decoder0.IN0
+bi => Decoder0.IN1
+cini => Decoder0.IN2
+si <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+couti <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ExponentSubtractor|RippleCarrySubtractor:RippleSub|FAbehav:s2
+ai => Decoder0.IN0
+bi => Decoder0.IN1
+cini => Decoder0.IN2
+si <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+couti <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ExponentSubtractor|RippleCarrySubtractor:RippleSub|FAbehav:s3
+ai => Decoder0.IN0
+bi => Decoder0.IN1
+cini => Decoder0.IN2
+si <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+couti <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ExponentSubtractor|RippleCarrySubtractor:RippleSub|FAbehav:s4
+ai => Decoder0.IN0
+bi => Decoder0.IN1
+cini => Decoder0.IN2
+si <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+couti <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ExponentSubtractor|twosComplementConverter:twoComplement
+A[0] => _.IN1
+A[1] => _.IN1
+A[2] => _.IN1
+A[3] => _.IN1
+A[4] => _.IN1
+B[0] <= halfADDER:twosFor[0].halfADDER_inst1.s
+B[1] <= halfADDER:twosFor[1].halfADDER_inst1.s
+B[2] <= halfADDER:twosFor[2].halfADDER_inst1.s
+B[3] <= halfADDER:twosFor[3].halfADDER_inst1.s
+B[4] <= halfADDER:twosFor[4].halfADDER_inst1.s
+
+
+|ExponentSubtractor|twosComplementConverter:twoComplement|halfADDER:twosFor[0].halfADDER_inst1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ExponentSubtractor|twosComplementConverter:twoComplement|halfADDER:twosFor[1].halfADDER_inst1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ExponentSubtractor|twosComplementConverter:twoComplement|halfADDER:twosFor[2].halfADDER_inst1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ExponentSubtractor|twosComplementConverter:twoComplement|halfADDER:twosFor[3].halfADDER_inst1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ExponentSubtractor|twosComplementConverter:twoComplement|halfADDER:twosFor[4].halfADDER_inst1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+

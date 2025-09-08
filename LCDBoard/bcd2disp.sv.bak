@@ -1,0 +1,9 @@
+module bcd2disp
+	#(parameter                         WIDTH = 32                                    ) // Bit Width
+	 (input         [WIDTH-1:0]         bin                                           , // 2's Complement Binary Input
+	  output                            sign                                          , // Sign Bit
+	  output    reg [3:0]               bcd        [`digits_for_bit_width(WIDTH)-1:0]); // BCD Output
+
+
+
+endmodule

@@ -1,0 +1,58 @@
+
+State Machine - |LCDboard|LCD:comb_3|LCD_Driver:comb_645|next_state
+Name next_state.Increment next_state.WaitBusy3 next_state.SetChar next_state.WaitBusy2 next_state.SetPOS next_state.WaitBusy1 next_state.WaitInit 
+next_state.WaitInit 0 0 0 0 0 0 0 
+next_state.WaitBusy1 0 0 0 0 0 1 1 
+next_state.SetPOS 0 0 0 0 1 0 1 
+next_state.WaitBusy2 0 0 0 1 0 0 1 
+next_state.SetChar 0 0 1 0 0 0 1 
+next_state.WaitBusy3 0 1 0 0 0 0 1 
+next_state.Increment 1 0 0 0 0 0 1 
+
+State Machine - |LCDboard|LCD:comb_3|LCD_Driver:comb_645|state
+Name state.Increment state.WaitBusy3 state.SetChar state.WaitBusy2 state.SetPOS state.WaitBusy1 state.WaitInit 
+state.WaitInit 0 0 0 0 0 0 0 
+state.WaitBusy1 0 0 0 0 0 1 1 
+state.SetPOS 0 0 0 0 1 0 1 
+state.WaitBusy2 0 0 0 1 0 0 1 
+state.SetChar 0 0 1 0 0 0 1 
+state.WaitBusy3 0 1 0 0 0 0 1 
+state.Increment 1 0 0 0 0 0 1 
+
+State Machine - |LCDboard|LCD:comb_3|LCD_Initilizer:comb_4|next_state
+Name next_state.Done next_state.WaitBusy5 next_state.DispClear next_state.WaitBusy4 next_state.EntryMode next_state.WaitBusy3 next_state.DispOn next_state.WaitBusy2 next_state.SetNF next_state.WaitBusy1 next_state.FunctionSet3 next_state.Wait250us next_state.FunctionSet2 next_state.Wait5ms next_state.FunctionSet1 next_state.Wait20ms 
+next_state.Wait20ms 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+next_state.FunctionSet1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+next_state.Wait5ms 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+next_state.FunctionSet2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+next_state.Wait250us 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+next_state.FunctionSet3 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+next_state.WaitBusy1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+next_state.SetNF 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+next_state.WaitBusy2 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+next_state.DispOn 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+next_state.WaitBusy3 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+next_state.EntryMode 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+next_state.WaitBusy4 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.DispClear 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.WaitBusy5 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.Done 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |LCDboard|LCD:comb_3|LCD_Initilizer:comb_4|state
+Name state.Done state.WaitBusy5 state.DispClear state.WaitBusy4 state.EntryMode state.WaitBusy3 state.DispOn state.WaitBusy2 state.SetNF state.WaitBusy1 state.FunctionSet3 state.Wait250us state.FunctionSet2 state.Wait5ms state.FunctionSet1 state.Wait20ms 
+state.Wait20ms 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.FunctionSet1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.Wait5ms 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.FunctionSet2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.Wait250us 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.FunctionSet3 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.WaitBusy1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.SetNF 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.WaitBusy2 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.DispOn 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.WaitBusy3 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.EntryMode 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.WaitBusy4 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.DispClear 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.WaitBusy5 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.Done 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
